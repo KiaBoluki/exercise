@@ -3,6 +3,8 @@ const guessInputEl = document.getElementById("guessInput")
 const guessCounterEl = document.getElementById("guessCounter")
 const guessButtonEl = document.getElementById("guessButton")
 const nextMissionEl = document.getElementById("nextMission")
+const guessListEl = document.getElementById('guess-list');
+
 let randomNumber = parseInt(Math.random() * 100)
 console.log(randomNumber)
 let count = 0;
@@ -18,6 +20,7 @@ guessButtonEl.addEventListener('click', () => {
         guessResultEl.style.display = 'none'
     }
 
+    
     if (guessValue < randomNumber) {
         guessResultEl.innerHTML = "عددی که حدس زدید کوچکتر از عدد تصادفی است"
     }
@@ -26,5 +29,6 @@ guessButtonEl.addEventListener('click', () => {
     }else {
         guessResultEl.innerHTML = "عددی که حدس زده اید درست است"
     }
+    guessListEl.innerHTML += `<li>${count}-${guessValue}</li>`;
 
 })
